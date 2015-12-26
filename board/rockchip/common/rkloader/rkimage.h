@@ -144,6 +144,7 @@ typedef struct tag_second_loader_hdr
 #define RESOURCE_NAME   "resource"
 #define LOGO_NAME       "logo"
 #define FACTORY_NAME    "factory"
+#define RAMFS_NAME      "ramfs"
 
 
 int rkimage_load_image(rk_boot_img_hdr *hdr, const disk_partition_t *boot_ptn, \

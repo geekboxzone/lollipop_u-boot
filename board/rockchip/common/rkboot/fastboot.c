@@ -207,6 +207,10 @@ void board_fbt_boot_failed(const char* boot)
 		printf("try to start backup\n");
 		char *const boot_cmd[] = {"bootrk", BACKUP_NAME};
 		do_bootrk(NULL, 0, ARRAY_SIZE(boot_cmd), boot_cmd);
+	} else if (!memcmp(BACKUP_NAME, boot, sizeof(BACKUP_NAME))) {
+		printf("try to start ramfs\n");
+		char *const boot_cmd[] = {"bootrk", RAMFS_NAME};
+		do_bootrk(NULL, 0, ARRAY_SIZE(boot_cmd), boot_cmd);
 	}  
 #endif
 	printf("try to start rockusb\n");
