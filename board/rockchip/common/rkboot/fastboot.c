@@ -169,6 +169,11 @@ int board_fbt_key_pressed(void)
 		printf("fastboot key pressed.\n");
 		frt = FASTBOOT_REBOOT_FASTBOOT;
 #endif
+	} else if (ir_keycode  == 388) {
+		printf("mode key pressed, will boot to ramfs partition.\n");
+		char *const boot_cmd[] = {"bootrk", RAMFS_NAME};
+		do_bootrk(NULL, 0, ARRAY_SIZE(boot_cmd), boot_cmd);
+
 	} else if(ir_keycode == KEY_DOWN) {
 		printf("recovery wipe data key pressed.\n");
 		frt = FASTBOOT_REBOOT_RECOVERY_WIPE_DATA;
