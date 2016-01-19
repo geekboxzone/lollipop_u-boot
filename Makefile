@@ -184,6 +184,7 @@ export	HOSTARCH HOSTOS
 
 #########################################################################
 
+ARCHV := aarch64
 ifeq ($(ARCHV),aarch64)
 
 ifneq ($(wildcard ../toolchain/aarch64-linux-android-4.9),)
