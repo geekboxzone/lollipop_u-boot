@@ -1033,6 +1033,8 @@ static int rk32_hdmi_config_phy(struct hdmi_dev *hdmi_dev)
 		       v_SUP_TXLVL(hdmi_dev->phy_table[i].data0_level);
 		rk32_hdmi_write_phy(hdmi_dev, PHYTX_VLEVCTRL, stat);
 	}
+	if ((hdmi_dev->tmdsclk > 165000000) && (hdmi_dev->tmdsclk < 340000000))
+		rk32_hdmi_write_phy(hdmi_dev, PHYTX_CLKSYMCTRL, 0x8019);
 	if (hdmi_dev->tmdsclk > 340000000)
 		rk32_hdmi_write_phy(hdmi_dev, PHYTX_TERM_RESIS,
 				    v_TX_TERM(R50_OHMS));
